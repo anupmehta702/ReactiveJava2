@@ -80,7 +80,8 @@ public class CombineObservablesTest {
 
         System.out.println("Trying group by ");
         Observable<String> colors = Observable.just("blue", "green", "black", "brown", "gray", "red", "violet");
-        Observable<GroupedObservable<Character, String>> groupedObservable = colors.groupBy((s) -> s.charAt(0));
+        Observable<GroupedObservable<Character, String>> groupedObservable =
+                colors.groupBy((s) -> s.charAt(0));
         groupedObservable.flatMapSingle((e) -> e.toList()).subscribe(System.out::println);
         /*Output
             [blue, black, brown]
